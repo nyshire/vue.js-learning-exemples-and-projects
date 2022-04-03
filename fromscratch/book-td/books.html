@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books Library</title>
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<style>
+  body{
+    background-color: #949090;
+    font-family: 'Fira Code';
+  }
+
+  .txt-grey{
+    color: #d3d3d3;
+  }
+
+  li{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em 0;
+    background-color: white;
+    padding: 1em;
+    border-radius: 10px;
+    border-top: 3px solid green;
+  }
+
+  .desc{
+    text-align: justify;
+    margin: 0 1em;
+  }
+
+  li.fav{
+    background-color: #ff9aab;
+    color: white;
+  }
+
+  li:hover{
+    cursor: pointer;
+  }
+
+  .infos p{
+    text-align: right;
+  }
+
+  ul{
+    margin: 0;
+    padding: 0;
+  }
+
+  li img{
+    height: 80px;
+    width: 40px;
+    object-fit: cover;
+  }
+</style>
+
+<body>
+  <h2>Welcome to the books library.</h2>
+  <p class="txt-grey"> * Pisst, You can add some books at favorite by clicking on their</p>
+
+  <div id="app">
+    <ul>
+      <li v-for="book in books" :class="{fav: book.isFav}" @click="toggleFav($event, book)">
+        <img :src="book.img" :alt="book.title">
+        <div class="desc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam id mollitia, totam voluptatem corporis nostrum, quasi deserunt modi quisquam minus cumque, illum autem consequatur! Nihil quasi magni excepturi ipsa sapiente.
+        </div>
+        <div class="infos">
+          <h3>{{ book.title }}</h3>
+          <p>{{ book.author }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Point Of Vue</title>
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<style>
+  .box{
+    background-color: #004b16;
+    width: 25%;
+    padding: 100px;
+    color: white;
+    text-align: center;
+  }
+</style>
+
+<body>
+  <h1>Hello World !</h1>
+  <div id="app">
+    <p>Book title : {{ title }} by {{ author }} aged {{ age }} years old</p>
+
+    <button v-on:click="age++">Increase age</button>
+    <button v-on:click="age--">Decrease age</button>
+
+    <!-- A shortcut to v-on: ==> @ sign  -->
+    <!-- <div @click="title = 'Cool book'">Change title</div> -->
+    <div @click="changeTitle">Change title</div>
+
+    <!-- Event Handling can be also done with javascript code -->
+
+    <div v-if="age > 40">
+      <p>{{ author }} is old !</p>
+    </div>
+
+    <div class="box" @mousemove='handleMousemove'>
+      Coordinates: {{ x }}x {{ y }}y
+    </div>
+
+    <!-- v-for -->
+    <div id="books">
+      <ul>
+        <li v-for="book in books">
+          Book {{ book.title }} by {{ book.author }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script src='app.js'></script>
+</body>
+</html>
